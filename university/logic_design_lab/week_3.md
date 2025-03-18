@@ -205,15 +205,3 @@ not n2(G, D);
 
 endmodule
 ```
-
-### 6. Exercise
-
-```verilog
-module exercise(input A, B, C, D, output E, F, G);
-
-and a1(E, A, B);
-not n1(F, C);
-and n2(G, D);
-
-endmodule
-```

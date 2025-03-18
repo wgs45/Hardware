@@ -165,3 +165,55 @@ endmodule
 ```
 
 This example uses `assign` to describe the logical flow of the circuit, making it more compact than the gate-level version.
+
+### 3. Exercise
+
+```verilog
+module exercise(input A, B, C, output F);
+wire D, E;
+and a1(D, ~A, B, C);
+and a2(E, A, C);
+or o1(F, D, E);
+
+// assign F = (~A & B & C) | (A & C);
+
+endmodule
+```
+
+### 4. Exercise
+
+```verilog
+module exercise(input A, B, C, D, output H);
+wire E, F, G;
+
+or or1(E, A, B);
+and and1(F, C, D);
+xor xor1(G, ~E, F);
+assign H = ~G;
+
+endmodule
+```
+
+### 5. Exercise
+
+```verilog
+module exercise(input A, B, C, D, output E, F, G);
+
+and a1(E, A, B);
+not n1(F, C);
+not n2(G, D);
+
+endmodule
+```
+
+### 6. Exercise
+
+```verilog
+module exercise(input A, B, C, D, output E, F, G);
+
+and a1(E, A, B);
+not n1(F, C);
+and n2(G, D);
+
+endmodule
+```

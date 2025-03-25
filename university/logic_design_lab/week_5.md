@@ -8,11 +8,11 @@
 
 In Verilog, components help **modularize** complex circuits, making them reusable and easier to manage. Instead of rewriting the same logic repeatedly, we can create **components** for:
 
-✅ **Multiplexers (MUX)**
-✅ **Decoders**
-✅ **Demultiplexers (DEMUX)**
-✅ **Counters**
-✅ **Shift Registers**
+✅ **Multiplexers (MUX)**  
+✅ **Decoders**  
+✅ **Demultiplexers (DEMUX)**  
+✅ **Counters**  
+✅ **Shift Registers**  
 ✅ **Full Adders & Half Adders**
 
 This modular approach makes our **circuit designs cleaner, efficient, and scalable!** 🚀
@@ -76,7 +76,7 @@ endmodule
 
 ```verilog
 // Bottom module 1: AND logic
-tmodule bottom1(i, j, f);
+module bottom1(i, j, f);
 input i, j;
 output f;
 assign f = i & j;
@@ -133,3 +133,56 @@ endmodule
 3️⃣ Carry is calculated as `Carry = C1 | C2`.
 
 ✅ **This modular approach makes designing adders simple and reusable!**
+
+---
+
+## 🏗 **Example 4: Combining Modules for Logic Operations**
+
+```verilog
+module main (input wire a, b, input wire [1:0] c, output wire f);
+    wire s1, s2;
+
+    // Instantiate com module (Half Adder Carry)
+    com com1 (
+        .A(a),
+        .B(b),
+        .F(s1)
+    );
+
+    // Instantiate com2 module (Case Statement)
+    com2 com2_ (
+        .C(c),
+        .F(s2)
+    );
+
+    // OR gate for final output
+    assign f = s1 | s2;
+endmodule
+
+module com (input wire A, B, output reg F);
+    always @(*) begin
+        if (A & B)
+            F = 1;
+        else
+            F = 0;
+    end
+endmodule
+
+module com2 (input wire [1:0] C, output reg F);
+    always @(*) begin
+        case (C)
+            2'b00: F = 0;
+            2'b01: F = 1;
+            2'b10: F = 0;
+            2'b11: F = 0;
+            default: F = 0;
+        endcase
+    end
+endmodule
+```
+
+📌 **Key Takeaways:**
+
+- `com` implements **a simple logic operation** using an `if` condition.
+- `com2` demonstrates **how case statements can be used for selection logic**.
+- The `main` module **combines the results** using an OR gate to produce `f`.

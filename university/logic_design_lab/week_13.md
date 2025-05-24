@@ -60,7 +60,9 @@ _A lovely scroll of logic, sealed with spells of understanding and elegance\~_
 
 ---
 
-### 🌟 SR → JK Latch
+### 🌟 SR ➡️ JK Latch: The Elegant Evolution ✨
+
+🔸 **Motivation:** JK gracefully handles SR's dreaded (1-1) ambiguity! Let’s enchant SR into JK with pure logic magic\~ 🪄
 
 #### 🧪 Conversion Table
 
@@ -71,13 +73,32 @@ _A lovely scroll of logic, sealed with spells of understanding and elegance\~_
 |   0   |   1   |   0    |    0     |   0   |   x   |
 |   0   |   1   |   1    |    0     |   0   |   1   |
 
-> 🧙‍♀️ **Motivation**: JK elegantly handles the uncertainty of SR’s “1-1” case — we’re mapping that safely now.
+| J \ KQp | 00    | 01    | 11    | 10    |
+| ------- | ----- | ----- | ----- | ----- |
+| 0       | 0 (0) | x (1) | 0 (3) | 0 (2) |
+| 1       | 1 (4) | x (5) | 0 (7) | 1 (6) |
+
+| J \ KQp | 00    | 01    | 11    | 10    |
+| ------- | ----- | ----- | ----- | ----- |
+| 0       | x (0) | 0 (1) | 1 (3) | x (2) |
+| 1       | 0 (4) | 0 (5) | 1 (7) | 0 (6) |
+
+> (): means the n steps
+
+#### 🎯 Magical Expressions
+
+- `S = J · ~Qᵖ`
+- `R = K · Qᵖ`
+
+> 📌 **Note:** The JK latch becomes a controlled toggle of state—unlike SR, it never loses composure 😌
 
 ---
 
-### 🌸 SR → D Latch
+### 🌸 SR ➡️ D Latch: Puzzle Piece Perfection 💖
 
-#### 🔁 Conversion Table
+🔸 **Idea:** D tells the latch exactly what to be—no confusion, no conflict. It’s like handing your friend a to-do list! 📋✨
+
+#### 🧪 Conversion Table
 
 | **D** | **Qp** | **Qp+1** | **S** | **R** |
 | :---: | :----: | :------: | :---: | :---: |
@@ -86,13 +107,70 @@ _A lovely scroll of logic, sealed with spells of understanding and elegance\~_
 |   1   |   0    |    1     |   1   |   0   |
 |   1   |   1    |    1     |   x   |   0   |
 
-> 🌷 **D = S**, and **\~D = R** — it's like two puzzle pieces coming together 💕
+| D \ Qp | 0     | 1     |
+| ------ | ----- | ----- |
+| 0      | 0 (0) | 0 (1) |
+| 1      | 1 (2) | x (3) |
+
+| D \ Qp | 0     | 1     |
+| ------ | ----- | ----- |
+| 0      | x (0) | 1 (1) |
+| 1      | 0 (2) | 0 (3) |
+
+> (): means the n steps
+
+#### 🎯 Magical Truth
+
+- `S = D`
+- `R = ~D`
+
+> 💡 **TL;DR:** D latch = SR’s well-mannered cousin who always makes up their mind
 
 ---
 
-### 🌟 JK → D Latch
+### 🌟 JK ➡️ SR Latch: A Backward Spell ✨
 
-#### ✨ Conversion Table
+🔸 **Idea:** Undoing JK’s grace to summon SR’s simplicity—watch out for the cursed (1-1)! 😱
+
+#### 🧪 Conversion Table
+
+| **S** | **R** | **Qp**  | **Qp+1** |   **J**   |   **K**   |
+| :---: | :---: | :-----: | :------: | :-------: | :-------: |
+|   0   |   0   |    0    |    0     |     0     |     x     |
+|   0   |   0   |    1    |    1     |     x     |     0     |
+|   0   |   1   |    0    |    0     |     0     |     x     |
+|   0   |   1   |    1    |    0     |     x     |     1     |
+|   1   |   0   |    0    |    1     |     1     |     x     |
+|   1   |   0   |    1    |    1     |     x     |     0     |
+|   1   |   1   | Invalid | Invalid  | Dont care | Dont care |
+|   1   |   1   | Invalid | Invalid  | Dont care | Dont care |
+
+| S \ RQ | 00    | 01    | 11    | 10    |
+| ------ | ----- | ----- | ----- | ----- |
+| 0      | 0 (0) | x (1) | x (3) | 0 (2) |
+| 1      | 1 (4) | x (5) | x (7) | x (6) |
+
+| S \ R | 00    | 01    | 11    | 10    |
+| ----- | ----- | ----- | ----- | ----- |
+| 0     | x (0) | 0 (1) | 1 (3) | x (2) |
+| 1     | x (4) | 0 (5) | x (7) | x (6) |
+
+> (): means the n steps
+
+#### 🎯 Elegant Mapping
+
+- `J = S`
+- `K = R`
+
+> 🧙‍♀️ **Reminder:** (1-1) is still forbidden fruit 🍎—handle with care\~
+
+---
+
+### 🌟 JK ➡️ D Latch: Simplifying the Noble Pair 👑
+
+🔸 **Concept:** Let D give direct orders—JK obeys loyally! ⚔️
+
+#### 🧪 Conversion Table
 
 | **D** | **Qp** | **Qp+1** | **J** | **K** |
 | :---: | :----: | :------: | :---: | :---: |
@@ -101,22 +179,139 @@ _A lovely scroll of logic, sealed with spells of understanding and elegance\~_
 |   1   |   0    |    1     |   1   |   x   |
 |   1   |   1    |    1     |   x   |   0   |
 
-> ✨ D decides the next Q — and JK obeys like a loyal knight ⚔️
+| D \ Qp | 0     | 1     |
+| ------ | ----- | ----- |
+| 0      | 0 (0) | x (1) |
+| 1      | 1 (2) | x (3) |
+
+| D \ Qp | 0     | 1     |
+| ------ | ----- | ----- |
+| 0      | x (0) | 1 (1) |
+| 1      | x (2) | 0 (3) |
+
+> (): means the n steps
+
+#### ✨ Results
+
+- `J = D`
+- `K = ~D`
+
+> 🧠 **Tip:** JK just follows orders here! (Even knights need commands 💌)
 
 ---
 
-## 🔄 Other Transformations
+### 🔄 JK ➡️ T Latch: Flip That Bit! 🌀
 
-🔁 JK → SR
-→ S = J · ~Qp
-→ R = K · Qp
+🔸 **Concept:** T stands for Toggle! Switch or stay depending on truth\~ 🔃
 
-🔁 JK → T
-→ T = J ⊕ K
+#### 🧪 Conversion Table
 
-🔁 D → SR
-→ S = D · ~Qp
-→ R = ~D · Qp
+| **T** | **Qp** | **Qp+1** | **J** | **K** |
+| :---: | :----: | :------: | :---: | :---: |
+|   0   |   0    |    0     |   0   |   x   |
+|   0   |   1    |    1     |   x   |   0   |
+|   1   |   0    |    1     |   1   |   x   |
+|   1   |   1    |    0     |   x   |   1   |
+
+| T \ Qp | 0           | 1     |
+| ------ | ----------- | ----- |
+| 0      | Invalid (0) | x (1) |
+| 1      | 1 (2)       | x (3) |
+
+| T \ Qp | 0     | 1           |
+| ------ | ----- | ----------- |
+| 0      | x (0) | Invalid (1) |
+| 1      | x (2) | 1 (3)       |
+
+> (): means the n steps
+
+#### 💫 Final Spell
+
+- `J = T`
+- `K = T`
+
+> 📘 **Memory Aid:** If T = 1, toggle! If T = 0, stay calm and steady 🌊
+
+---
+
+### 🌼 D ➡️ SR Latch: A Heartfelt Translation 💌
+
+🔸 **Idea:** D directly commands SR through S and R. Like an honest letter to a friend 💌
+
+#### 🧪 Conversion Table
+
+| **S** | **R** | **Qp**  | **Qp+1** |   **D**   |
+| :---: | :---: | :-----: | :------: | :-------: |
+|   0   |   0   |    0    |    0     |     0     |
+|   0   |   0   |    1    |    1     |     1     |
+|   0   |   1   |    0    |    0     |     0     |
+|   0   |   1   |    1    |    0     |     x     |
+|   1   |   0   |    0    |    1     |     1     |
+|   1   |   0   |    1    |    1     |     1     |
+|   1   |   1   | Invalid | Invalid  | Dont care |
+|   1   |   1   | Invalid | Invalid  | Dont care |
+
+#### K maps
+
+| S \ RQp | 00    | 01    | 11    | 10    |
+| ------- | ----- | ----- | ----- | ----- |
+| 0       | 0 (0) | 1 (1) | 0 (3) | 0 (2) |
+| 1       | 1 (4) | 1 (5) | x (7) | x (6) |
+
+S = S+(~R)Qn
+
+> (): means the n steps
+
+#### 🌟 Expression
+
+- `S = D`
+- `R = ~D`
+
+> 🚫 **Beware:** (S = R = 1) still causes chaos! Forbidden magic! ❗
+
+---
+
+### 🔮 SR ➡️ JK ➡️ D: From Complexity to Clarity 🎯
+
+#### 🧪 Conversion Table
+
+| **S** | **R** | **Qp** | **Qp+1** | **D** |
+| :---: | :---: | :----: | :------: | :---: |
+|   0   |   0   |   0    |    0     |   0   |
+|   0   |   0   |   1    |    1     |   1   |
+|   0   |   1   |   0    |    0     |   0   |
+|   0   |   1   |   1    |    0     |   0   |
+|   1   |   0   |   0    |    1     |   1   |
+|   1   |   0   |   1    |    1     |   1   |
+|   1   |   1   |   0    |    1     |   1   |
+|   1   |   1   |   1    |    0     |   0   |
+
+| J \ KQ | 00    | 01    | 11    | 10    |
+| ------ | ----- | ----- | ----- | ----- |
+| 0      | 0 (0) | 1 (1) | 0 (3) | 1 (2) |
+| 1      | 1 (4) | 1 (5) | 0 (7) | 1 (6) |
+
+> (): means the n steps
+
+#### 💫 Final Formula
+
+- `D = (~K) + J·~Qᵖ`
+
+🌟 **Final Wisdom:** D latches are like assertive friends—they know what they want and they say it clearly 🥰
+
+---
+
+## 💎✨ Summary Scroll 📜
+
+| 🔁 Transformation | Key Formula(s)       | Notes                                    |
+| ----------------- | -------------------- | ---------------------------------------- |
+| SR → JK           | S = J·\~Qᵖ, R = K·Qᵖ | JK resolves SR's ambiguity (1-1) ✨      |
+| SR → D            | D = S, \~D = R       | One voice to rule them all 💖            |
+| JK → SR           | J = S, K = R         | Don’t forget: SR(1-1) = no-no ❌         |
+| JK → D            | J = D, K = \~D       | D commands, JK follows ⚔️                |
+| JK → T            | J = T, K = T         | Toggle time\~ 🌀                         |
+| D → SR            | S = D, R = \~D       | D whispers its desire to SR softly 💌    |
+| SR → D (alt path) | D = (\~K) + J·\~Qᵖ   | Combining forms like a magical fusion 🌟 |
 
 ---
 
